@@ -53,7 +53,12 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => LoginCubit()),
-        BlocProvider(create: (context) => HomeCubit()..getCategoriesdata()),
+        BlocProvider(
+            create: (context) => HomeCubit()
+              ..getHomeData()
+              ..getCategoriesdata()
+              ..getFavorites()
+              ..getProfile()),
       ],
       child: MaterialApp(
         routes: {

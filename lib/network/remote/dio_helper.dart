@@ -40,4 +40,18 @@ class DioHelper {
     };
     return await dio.get(url, queryParameters: parameter);
   }
+
+  Future<Response> updateData({
+    required String url,
+    required Map<String, dynamic> body,
+    String? token,
+    String lang = 'en',
+  }) async {
+    dio.options.headers = {
+      'Content-Type': 'application/json',
+      'lang': lang,
+      'authorization': token
+    };
+    return await dio.put(url, data: body);
+  }
 }

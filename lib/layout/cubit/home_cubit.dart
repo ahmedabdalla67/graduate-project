@@ -134,4 +134,22 @@ class HomeCubit extends Cubit<HomeStates> {
       emit(GetProfileFailureState());
     });
   }
+
+  ////////////////UPDATE PROFILE/////////////////
+  void updateProfile(String name, String phone, String email) {
+    emit(UpdateProfileLoadingState());
+    DioHelper().updateData(
+        url: BASEURL + UPDATE_PROFILE,
+        token: token,
+        body: {'name': name, 'phone': phone, 'email': email}).then((value) {
+      // print(value.data);
+      userResponse = UserResponse.fromJson(value.data);
+      log(userResponse!.data!.token);
+      log(userResponse!.message);
+      emit(UpdateProfileSuccessState(userResponse: userResponse!));
+    }).catchError((error) {
+      print(error.toString());
+      emit(UpdateProfileFailureState());
+    });
+  }
 }

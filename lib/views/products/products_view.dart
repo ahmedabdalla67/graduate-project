@@ -3,22 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/layout/cubit/home_cubit.dart';
 import 'package:shop_app/shared/widgets/build_products_view.dart';
 
-class ProductsView extends StatefulWidget {
+class ProductsView extends StatelessWidget {
   const ProductsView({super.key});
 
-  @override
-  State<ProductsView> createState() => _ProductsViewState();
-}
-
-class _ProductsViewState extends State<ProductsView> {
   // HomeModel? model;
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    HomeCubit.get(context).getHomeData();
-  }
-
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<HomeCubit, HomeStates>(

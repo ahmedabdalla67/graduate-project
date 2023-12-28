@@ -47,3 +47,14 @@ final class GetProfileSuccessState extends HomeStates {
 }
 
 final class GetProfileFailureState extends HomeStates {}
+
+////////////////////////////////
+final class UpdateProfileLoadingState extends HomeStates {}
+
+final class UpdateProfileSuccessState extends HomeStates {
+  final UserResponse userResponse;
+
+  UpdateProfileSuccessState({required this.userResponse});
+}
+
+final class UpdateProfileFailureState extends HomeStates {}

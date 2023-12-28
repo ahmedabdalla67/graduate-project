@@ -5,3 +5,4 @@ const String HOME = 'home';
 const String CATEGORIES = 'categories';
 const String FAVORITES = 'favorites';
 const String Profile = 'profile';
+const String UPDATE_PROFILE = 'update-profile';
