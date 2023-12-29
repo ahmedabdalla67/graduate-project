@@ -12,6 +12,7 @@ class TextFormFieldWidget extends StatelessWidget {
     this.onchanged,
     required this.hintText,
     required this.textInputType,
+    this.onSubmitted,
   });
 
   final String? Function(String?)? validation;
@@ -22,6 +23,7 @@ class TextFormFieldWidget extends StatelessWidget {
   final TextInputType textInputType;
   final bool obscureText;
   final void Function(String)? onchanged;
+  final void Function(String)? onSubmitted;
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +34,7 @@ class TextFormFieldWidget extends StatelessWidget {
       child: TextFormField(
         controller: controller,
         onChanged: onchanged,
+        onFieldSubmitted: onSubmitted,
         keyboardType: textInputType,
         obscureText: obscureText,
         validator: validation,
